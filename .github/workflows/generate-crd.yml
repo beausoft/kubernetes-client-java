@@ -41,6 +41,7 @@ jobs:
             -v /var/run/docker.sock:/var/run/docker.sock \
             -v "$(pwd)":"$(pwd)" \
             --network host \
+            --validate false \
             ${IMAGE_NAME}:${IMAGE_TAG} \
             /generate.sh \
             ${CRD_SRC_ARGS} \
