@@ -41,13 +41,13 @@ jobs:
             -v /var/run/docker.sock:/var/run/docker.sock \
             -v "$(pwd)":"$(pwd)" \
             --network host \
-            --validate false \
             ${IMAGE_NAME}:${IMAGE_TAG} \
             /generate.sh \
             ${CRD_SRC_ARGS} \
             ${CRD_API_GROUP_ARGS} \
             -p ${{ github.event.inputs.generatingJavaPackage }} \
-            -o "$(pwd)/${GEN_DIR}"
+            -o "$(pwd)/${GEN_DIR}" \
+            --validate=false
           ls -lh ${GEN_DIR}
       - uses: actions/upload-artifact@v4
         with:
