@@ -46,8 +46,7 @@ jobs:
             ${CRD_SRC_ARGS} \
             ${CRD_API_GROUP_ARGS} \
             -p ${{ github.event.inputs.generatingJavaPackage }} \
-            -o "$(pwd)/${GEN_DIR}" \
-            --validate=false
+            -o "$(pwd)/${GEN_DIR}"
           ls -lh ${GEN_DIR}
       - uses: actions/upload-artifact@v4
         with:
